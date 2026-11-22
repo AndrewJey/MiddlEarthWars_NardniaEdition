@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.BattlePage"
+             Title="Combate"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label x:Name="TurnLabel"
+                   FontSize="22"
+                   FontFamily="MiddearthBodyFont"
+                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="DistanceLabel"
+                   FontSize="16"
+                   FontFamily="MiddearthBodyFont"
+                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                   HorizontalOptions="Center" />
+
+            <Image x:Name="CurrentPlayerImage"
+                   HeightRequest="260"
+                   Aspect="AspectFit" />
+
+            <Label x:Name="CurrentPlayerInfoLabel"
+                   FontSize="16"
+                   FontFamily="MiddearthBodyFont"
+                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <!-- Vida de ambos jugadores -->
+            <Frame BorderColor="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                   Padding="10" CornerRadius="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label x:Name="Player1HealthLabel"
+                           FontFamily="MiddearthBodyFont"
+                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                    <Label x:Name="Player2HealthLabel"
+                           FontFamily="MiddearthBodyFont"
+                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label x:Name="LastActionLabel"
+                   FontSize="14"
+                   FontFamily="MiddearthBodyFont"
+                   TextColor="{AppThemeBinding Light={StaticResource ActionSuccessLight}, Dark={StaticResource ActionSuccessDark}}"
+                   HorizontalTextAlignment="Center" />
+
+            <!-- Acciones -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+                  ColumnSpacing="12"
+                  RowSpacing="12">
+                <Button x:Name="AttackButton"
+                        Text="Atacar"
+                        Grid.Row="0" Grid.Column="0"
+                        Clicked="OnAttackClicked"
+                        BackgroundColor="#C62828"
+                        TextColor="White" />
+
+                <Button x:Name="HealButton"
+                        Text="Sanar"
+                        Grid.Row="0" Grid.Column="1"
+                        Clicked="OnHealClicked"
+                        BackgroundColor="#2E7D32"
+                        TextColor="White" />
+
+                <Button x:Name="MoveForwardButton"
+                        Text="Avanzar"
+                        Grid.Row="1" Grid.Column="0"
+                        Clicked="OnMoveForwardClicked"
+                        BackgroundColor="#1E88E5"
+                        TextColor="White" />
+
+                <Button x:Name="MoveBackButton"
+                        Text="Retroceder"
+                        Grid.Row="1" Grid.Column="1"
+                        Clicked="OnMoveBackClicked"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                        TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}" />
+            </Grid>
+
+            <Button x:Name="SaveButton"
+                    Text="Guardar partida"
+                    Margin="0,10,0,0"
+                    HorizontalOptions="Center"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
+                    TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}"
+                    Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

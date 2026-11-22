@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.SplashPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <Grid>
+        <VerticalStackLayout HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Padding="40"
+                             Spacing="18">
+            <Label x:Name="SplashTitleLabel"
+                   Text="Middlearth Wars: Nardnia Edition"
+                   FontSize="32"
+                   FontFamily="MiddearthTitleFont"
+                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <Image Source="app_icon.png"
+                   HeightRequest="180"
+                   WidthRequest="180"
+                   Aspect="AspectFit" />
+
+            <ActivityIndicator IsRunning="True"
+                               HeightRequest="32"
+                               WidthRequest="32"
+                               Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
+
+            <Label x:Name="SplashLoadingLabel"
+                   Text="Preparando el campo de batalla..."
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

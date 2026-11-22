@@ -1,0 +1,28 @@
+# .NET / Visual Studio / MAUI
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+TestResults/
+*.log
+
+# Android build outputs & local SDK tools
+*.apk
+*.aab
+platform-tools/
+
+# Signing keys & local secrets (never commit)
+*.keystore
+*.jks
+*.p12
+*.pem
+local.properties
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db

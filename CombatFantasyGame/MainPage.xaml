@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.MainPage"
+             Title=""
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="28,36,28,30" Spacing="18">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="160"
+                Aspect="AspectFit"
+                HorizontalOptions="Center" />
+
+            <Label
+                x:Name="GameTitleLabel"
+                Text="Middlearth Wars: Nardnia Edition"
+                HorizontalTextAlignment="Center"
+                TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                FontSize="26"
+                LineBreakMode="WordWrap"
+                MaxLines="2"
+                FontFamily="MiddearthTitleFont" />
+
+            <Label
+                x:Name="SubtitleLabel"
+                Text="Batalla por turnos"
+                HorizontalTextAlignment="Center"
+                TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                FontSize="18"
+                FontFamily="MiddearthBodyFont" />
+
+            <VerticalStackLayout Spacing="4">
+                <Label
+                    x:Name="LanguagePromptLabel"
+                    Text="Idioma / Language"
+                    TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                    HorizontalOptions="Center" />
+                <Picker
+                    x:Name="LanguagePicker"
+                    Title="Idioma"
+                    ItemDisplayBinding="{Binding DisplayName}"
+                    WidthRequest="240"
+                    TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                    HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Grid ColumnDefinitions="*,Auto"
+                  Padding="0,5,0,0">
+                <Label
+                    x:Name="ThemeToggleLabel"
+                    Text="Modo nocturno"
+                    TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                    VerticalOptions="Center"
+                    FontFamily="MiddearthBodyFont" />
+                <Switch
+                    x:Name="ThemeSwitch"
+                    HorizontalOptions="End"
+                    Toggled="OnThemeToggled" />
+            </Grid>
+
+            <Button
+                x:Name="NewGameButton"
+                Text="Nueva partida"
+                Clicked="OnNewGameClicked"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                CornerRadius="10" />
+
+            <Button
+                x:Name="ContinueButton"
+                Text="Continuar partida guardada"
+                Clicked="OnContinueClicked"
+                IsVisible="False" />
+
+            <Button
+                x:Name="StatsButton"
+                Text="Estadísticas"
+                Clicked="OnStatsClicked" />
+
+            <Button
+                x:Name="CreditsButton"
+                Text="Créditos"
+                Clicked="OnCreditsClicked" />
+
+            <Button
+                x:Name="DocsButton"
+                Text="Reglas y documentación"
+                Clicked="OnDocsClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

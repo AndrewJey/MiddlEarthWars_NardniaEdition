@@ -1,0 +1,170 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!-- Solo Android, como requiere el proyecto -->
+		<TargetFrameworks>net9.0-android;net9.0-ios</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>CombatFantasyGame</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>MiddearthWars</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.andrewjey.middearthwars</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0.5</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>MSIX</WindowsPackageType>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">16.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
+		<!-- Incluir binarios 32 y 64 bits para que el APK funcione en más dispositivos -->
+		<RuntimeIdentifiers>android-arm;android-arm64;android-x86;android-x64</RuntimeIdentifiers>
+	</PropertyGroup>
+
+	<PropertyGroup>
+	  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.26100.0</TargetFrameworks>
+	  <GenerateDocumentationFile>False</GenerateDocumentationFile>
+	  <SignAssembly>False</SignAssembly>
+	  <Company>ForesightSolutionsSRL</Company>
+	  <Authors>AndrewJey</Authors>
+	  <Version>1.5</Version>
+	  <Title>MiddlearthWars_Nardnia</Title>
+	  <PackageIcon>app_icon.png</PackageIcon>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <FileVersion>1.0.5.3</FileVersion>
+	  <AssemblyOriginatorKeyFile>Resources\Keys\MiddlearthWars.keystore</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <ApplicationDisplayVersion>1.0.5</ApplicationDisplayVersion>
+	  <RunAOTCompilation>True</RunAOTCompilation>
+	  <ApplicationId>com.andrewjey.middlearthwars</ApplicationId>
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+	  <ApplicationTitle>MiddlearthWars_Nardia</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <ApplicationDisplayVersion>1.0.5</ApplicationDisplayVersion>
+	  <ApplicationId>com.andrewjey.middlearthwars</ApplicationId>
+	  <ApplicationTitle>MiddlearthWars_Nardia</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.26100.0|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <NoWarn>1701;1702</NoWarn>
+	  <WarningsAsErrors>$(WarningsAsErrors);NU1605</WarningsAsErrors>
+	  <ApplicationDisplayVersion>1.0.5</ApplicationDisplayVersion>
+	  <ApplicationId>com.andrewjey.middlearthwars</ApplicationId>
+	  <ApplicationTitle>MiddlearthWars_Nardia</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.26100.0|AnyCPU'">
+	  <NoWarn>1701;1702</NoWarn>
+	  <WarningsAsErrors>$(WarningsAsErrors);NU1605</WarningsAsErrors>
+	  <ApplicationDisplayVersion>1.0.5</ApplicationDisplayVersion>
+	  <ApplicationId>com.andrewjey.middlearthwars</ApplicationId>
+	  <ApplicationTitle>MiddlearthWars_Nardia</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.5</ApplicationDisplayVersion>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <DebugSymbols>True</DebugSymbols>
+	  <!-- Release APK signing via local keystore and env/MSBuild properties (never commit secrets) -->
+	  <AndroidKeyStore Condition="Exists('Resources\Keys\MiddlearthWars.keystore') And '$(ANDROID_SIGNING_STORE_PASS)' != '' And '$(ANDROID_SIGNING_KEY_PASS)' != ''">true</AndroidKeyStore>
+	  <AndroidSigningKeyStore>Resources\Keys\MiddlearthWars.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningStorePass>$(ANDROID_SIGNING_STORE_PASS)</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>middlearthwars</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>$(ANDROID_SIGNING_KEY_PASS)</AndroidSigningKeyPass>
+	  <ApplicationId>com.andrewjey.middlearthwars</ApplicationId>
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
+	  <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+	  <ApplicationTitle>MiddlearthWars_Nardia</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.5</ApplicationDisplayVersion>
+	  <ApplicationId>com.andrewjey.middlearthwars</ApplicationId>
+	  <ApplicationTitle>MiddlearthWars_Nardia</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
+	  <ProvisioningType>automatic</ProvisioningType>
+	</PropertyGroup>
+
+		<ItemGroup>
+			<!-- App Icon -->
+			<MauiIcon Include="Resources\AppIcon\app_icon.png" />
+
+			<!-- Splash Screen -->
+			<MauiSplashScreen Include="Resources\AppIcon\app_icon.png" Color="#000000" BaseSize="256,256" />
+
+			<!-- Images -->
+			<MauiImage Include="Resources\Images\*" />
+			<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+			
+			<!-- Custom Fonts -->
+			<MauiFont Include="Resources\Fonts\OpenSans-Regular.ttf" Alias="OpenSansRegular" />
+			<MauiFont Include="Resources\Fonts\OpenSans-Semibold.ttf" Alias="OpenSansSemibold" />
+			<MauiFont Include="Resources\Fonts\EXL.TTF" Alias="MiddearthBodyFont" />
+			<MauiFont Include="Resources\Fonts\Starcraft Normal.ttf" Alias="MiddearthButtonFont" />
+			<MauiFont Include="Resources\Fonts\Exocet Heavy.ttf" Alias="MiddearthWinnerFont" />
+			<MauiFont Include="Resources\Fonts\LifeCraft_Font.ttf" Alias="MiddearthTitleFont" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+		<ItemGroup>
+		  <None Include="..\README.md">
+		    <Pack>True</Pack>
+		    <PackagePath>\</PackagePath>
+		  </None>
+		</ItemGroup>
+
+		<ItemGroup>
+			<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+			<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.8" />
+			<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+			<PackageReference Include="Plugin.Maui.Audio" Version="2.1.0" />
+		</ItemGroup>
+
+		<ItemGroup>
+		  <None Update="Resources\AppIcon\app_icon.png">
+		    <Pack>True</Pack>
+		    <PackagePath>\</PackagePath>
+		  </None>
+		</ItemGroup>
+
+</Project>

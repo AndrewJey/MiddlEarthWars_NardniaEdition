@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.DocsPage"
+             Title="Documentación técnica del juego">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Label x:Name="DocsTitleLabel"
+                   FontSize="22"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="DocsIntroLabel" />
+
+            <Label x:Name="DocsRacesHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="DocsHumansLabel" />
+            <Label x:Name="DocsElvesLabel" />
+            <Label x:Name="DocsOrcsLabel" />
+            <Label x:Name="DocsBeastsLabel" />
+
+            <Label x:Name="DocsDistanceHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="DocsDistanceLabel" />
+
+            <Label x:Name="DocsTurnLogicHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="DocsTurnLogicLabel" />
+
+            <Label x:Name="DocsDiagramHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Border Padding="10"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                    StrokeThickness="1"
+                    StrokeShape="{RoundRectangle CornerRadius=12}">
+                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto"
+                      RowDefinitions="Auto,Auto,Auto"
+                      ColumnSpacing="6"
+                      RowSpacing="6">
+                    <Border Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="10,6"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
+                            Stroke="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                            StrokeThickness="1"
+                            StrokeShape="{RoundRectangle CornerRadius=8}">
+                        <Label x:Name="DocsDiagramPlayerOneLabel"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center" />
+                    </Border>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Text="→"
+                           FontSize="22"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+
+                    <Border Grid.Row="0"
+                            Grid.Column="2"
+                            Padding="10,6"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
+                            Stroke="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                            StrokeThickness="1"
+                            StrokeShape="{RoundRectangle CornerRadius=8}">
+                        <Label x:Name="DocsDiagramTurnEngineLabel"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center" />
+                    </Border>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="3"
+                           Text="→"
+                           FontSize="22"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+
+                    <Border Grid.Row="0"
+                            Grid.Column="4"
+                            Padding="10,6"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
+                            Stroke="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                            StrokeThickness="1"
+                            StrokeShape="{RoundRectangle CornerRadius=8}">
+                        <Label x:Name="DocsDiagramPlayerTwoLabel"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center" />
+                    </Border>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Text="↓"
+                           FontSize="22"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+
+                    <Border Grid.Row="2"
+                            Grid.Column="2"
+                            Padding="10,6"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
+                            Stroke="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                            StrokeThickness="1"
+                            StrokeShape="{RoundRectangle CornerRadius=8}">
+                        <Label x:Name="DocsDiagramDataStoreLabel"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center" />
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Label x:Name="DocsDiagramDescriptionLabel"
+                   FontAttributes="Italic"
+                   FontSize="13" />
+
+            <Label x:Name="DocsVictoryHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="DocsVictoryLabel" />
+
+            <Label x:Name="DocsPersistenceHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="DocsPersistenceLabel" />
+
+            <Label x:Name="DocsArchitectureHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="DocsArchitectureLabel" />
+
+            <Label x:Name="DocsDiagnosticsHeaderLabel"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="DocsDiagnosticsLabel" />
+
+            <Label x:Name="DocsLogPathHeaderLabel"
+                   FontAttributes="Bold" />
+
+            <Label x:Name="DocsLogPathValueLabel"
+                   LineBreakMode="WordWrap" />
+
+            <Button x:Name="CopyLogPathButton"
+                    Clicked="OnCopyLogPathClicked" />
+
+            <Label x:Name="DocsHostLogPathHeaderLabel"
+                   FontAttributes="Bold"
+                   IsVisible="False" />
+
+            <Label x:Name="DocsHostLogPathValueLabel"
+                   LineBreakMode="WordWrap"
+                   IsVisible="False" />
+
+            <Button x:Name="CopyHostLogPathButton"
+                    Clicked="OnCopyHostLogPathClicked"
+                    IsVisible="False" />
+
+            <Button x:Name="ShareLogButton"
+                    Clicked="OnShareLogClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

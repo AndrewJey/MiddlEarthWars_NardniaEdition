@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.StatsPage"
+             Title="Estadísticas"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label x:Name="StatsHeaderLabel"
+                   Text="Estadísticas de jugadores"
+                   FontSize="22"
+                   FontFamily="MiddearthBodyFont"
+                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                   HorizontalOptions="Center" />
+
+            <CollectionView x:Name="PlayersCollectionView"
+                            SelectionMode="None"
+                            HeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                               Padding="12"
+                               Margin="0,5"
+                               CornerRadius="10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding RaceDisplay}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding WeaponDisplay}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding WinsDisplay}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding LossesDisplay}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding DrawsDisplay}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label x:Name="MatchHistoryHeaderLabel"
+                   Text="Historial de partidas"
+                   FontSize="20"
+                   FontFamily="MiddearthBodyFont"
+                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,0" />
+
+            <CollectionView x:Name="MatchesCollectionView"
+                            SelectionMode="None"
+                            HeightRequest="250">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                               Padding="12"
+                               Margin="0,5"
+                               CornerRadius="10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding DateDisplay}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding Player1Display}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding Player2Display}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                                <Label Text="{Binding WinnerDisplay}"
+                                       FontFamily="MiddearthBodyFont"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.SummaryPage"
+             Title="Resumen de partida">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label x:Name="TitleLabel"
+                   FontSize="26"
+                   FontFamily="MiddearthWinnerFont"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <Frame BorderColor="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                   Padding="15"
+                   CornerRadius="10">
+                <VerticalStackLayout Spacing="8">
+                    <Label x:Name="Player1SummaryLabel" />
+                    <Label x:Name="Player2SummaryLabel" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button x:Name="BackToMenuButton"
+                    Text="Volver al menú principal"
+                    Clicked="OnBackToMenuClicked"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button x:Name="ViewStatsButton"
+                    Text="Ver estadísticas de jugadores"
+                    Clicked="OnViewStatsClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

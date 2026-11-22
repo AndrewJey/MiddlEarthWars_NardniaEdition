@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.PlayerSetupPage"
+             Title="Configuración de jugadores">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+            <Label x:Name="SetupHeaderLabel"
+                   Text="Configurar partida"
+                   FontSize="20"
+                   FontFamily="MiddearthBodyFont"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   MaxLines="1"
+                   LineBreakMode="TailTruncation" />
+
+            <!-- Jugador 1 -->
+            <Frame BorderColor="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                   Padding="15"
+                   CornerRadius="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="Player1TitleLabel" Text="Jugador 1" FontAttributes="Bold" FontSize="18" FontFamily="MiddearthBodyFont" />
+                    <Entry x:Name="Player1NameEntry"
+                           Placeholder="Nombre del jugador 1"
+                           FontFamily="MiddearthBodyFont"
+                           FontSize="16"
+                           Keyboard="Chat" />
+
+                    <Picker x:Name="Player1RacePicker"
+                            Title="Raza"
+                            FontFamily="MiddearthBodyFont"
+                            FontSize="16"
+                            TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            SelectedIndexChanged="OnPlayer1RaceChanged">
+                    </Picker>
+
+                    <Picker x:Name="Player1ElementPicker"
+                            Title="Elemento (solo elfos)"
+                            IsVisible="False"
+                            FontFamily="MiddearthBodyFont"
+                            FontSize="16"
+                            TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            SelectedIndexChanged="OnPlayer1ElementChanged">
+                    </Picker>
+
+                    <Picker x:Name="Player1WeaponPicker"
+                            Title="Arma"
+                            IsVisible="False"
+                            FontFamily="MiddearthBodyFont"
+                            FontSize="16"
+                            TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            SelectedIndexChanged="OnPlayer1WeaponChanged" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Jugador 2 -->
+            <Frame BorderColor="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                   Padding="15"
+                   CornerRadius="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="Player2TitleLabel" Text="Jugador 2" FontAttributes="Bold" FontSize="18" FontFamily="MiddearthBodyFont" />
+                    <Entry x:Name="Player2NameEntry"
+                           Placeholder="Nombre del jugador 2"
+                           FontFamily="MiddearthBodyFont"
+                           FontSize="16"
+                           Keyboard="Chat" />
+
+                    <Picker x:Name="Player2RacePicker"
+                            Title="Raza"
+                            FontFamily="MiddearthBodyFont"
+                            FontSize="16"
+                            TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            SelectedIndexChanged="OnPlayer2RaceChanged">
+                    </Picker>
+
+                    <Picker x:Name="Player2ElementPicker"
+                            Title="Elemento (solo elfos)"
+                            IsVisible="False"
+                            FontFamily="MiddearthBodyFont"
+                            FontSize="16"
+                            TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            SelectedIndexChanged="OnPlayer2ElementChanged">
+                    </Picker>
+
+                    <Picker x:Name="Player2WeaponPicker"
+                            Title="Arma"
+                            IsVisible="False"
+                            FontFamily="MiddearthBodyFont"
+                            FontSize="16"
+                            TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource White}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                            ItemDisplayBinding="{Binding DisplayName}"
+                            SelectedIndexChanged="OnPlayer2WeaponChanged" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button x:Name="StartBattleButton"
+                    Text="Iniciar combate"
+                    Clicked="OnStartBattleClicked"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button x:Name="LoadGameButton"
+                    Text="Cargar partida"
+                    Clicked="OnLoadGameClicked"
+                    BackgroundColor="#1F1F1F"
+                    TextColor="White"
+                    CornerRadius="10" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

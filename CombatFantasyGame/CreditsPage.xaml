@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CombatFantasyGame.CreditsPage"
+             Title="Créditos">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Label x:Name="CreditsHeaderLabel"
+                   Text="Créditos"
+                   FontSize="24"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="TeamHeaderLabel"
+                   Text="Integrantes del proyecto:"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <Label x:Name="Member1Label" Text="• High GPT-5.1-Codex Plus de AndrewJey – Programación y lógica del juego" />
+            <Label x:Name="Member2Label" Text="• Chat GTP-5.1 Extended Thinking Plus con Sora – Diseño de UI / Imágenes" />
+            <Label x:Name="Member3Label" Text="• Andrés J. Jiménez Leandro, DBA – Bases de datos / Persistencia" />
+            <Label x:Name="Member4Label" Text="• BMAD Claude Agent – Pruebas / Documentación" />
+
+            <Label x:Name="TechHeaderLabel"
+                   Text="Tecnologías utilizadas:"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0" />
+
+            <Label x:Name="Tech1Label" Text=".NET MAUI (C#) para Android" />
+            <Label x:Name="Tech2Label" Text="SQLite (sqlite-net-pcl) para persistencia local" />
+            <Label x:Name="Tech3Label" Text="Visual Studio Code como IDE principal" />
+            <Label x:Name="Tech4Label" Text="Visual Studio 2022 Community como IDE secundario y entorno de pruebas" />
+
+            <Label x:Name="ImagesHeaderLabel"
+                   Text="Imágenes:"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0" />
+
+            <Label x:Name="ImagesNoteLabel"
+                   Text="Las imágenes de personajes han sido generadas por IA, a solicitud del encargado del proyecto, AndrewJey." />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
